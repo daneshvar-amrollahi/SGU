@@ -13,7 +13,7 @@ vector <pii> path;
 
 void dfs(int u)
 {
-    cout << u << " , ";
+    //cout << u << " , ";
     for (int i = 0 ; i <= 6 ; i++)
     {
         if (mat[u][i])
@@ -21,11 +21,7 @@ void dfs(int u)
             mat[u][i]--;
             mat[i][u]--;
             dfs(i);
-            if (u==3 && i == 2)
-            {
-                cout << "pushed" << endl;
-            }
-                path.pb(mp(u,i));
+            path.pb(mp(u,i));
             
         }
     }
@@ -65,12 +61,7 @@ int main()
     dfs(start);
     if (path.size() != n)
         return cout << "No solution" << endl , 0;
-    
-    cout << endl;
-    for (int i = 0 ; i < path.size() ; i++)
-        cout << path[i].first << " " << path[i].second << endl;
 
-    cout << endl << endl;
     for (int i = path.size()-1 ; i >= 0 ; i--)
     {
         for (int j = 0 ; j < n ; j++)
